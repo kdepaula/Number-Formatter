@@ -6,13 +6,12 @@ public class DefaultFormatter implements NumberFormatter
 		String format = "";
 		String num = "" + a;
 		
-		for(int i = 0; i < num.length(); i++)
+		for(int i = num.length(); i > 0; i--)
 		{
-			format += num.substring(i, i+1);
+			format = num.substring(i-1, i) + format;
 			if(i%3 == 0)
 			{
-				if(i != num.length() - 1)
-				format += ",";
+				format = "," + format;
 			}
 		}
 		return format;
